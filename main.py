@@ -128,6 +128,7 @@ def delete_employ():
             else:
                 print("Vui lòng nhập Y hoặc N")
    
+#Tìm nhân viên
 def find_employ():
     id_emp = input("Nhập mã nhân viên cần tìm: ").strip().upper()
     idx = validate_id(id_emp)
@@ -136,6 +137,30 @@ def find_employ():
     else:
         print(f"Tìm thấy nhân viên có mã là {id_emp}:")      
         print(f"Mã nhân viên: {employees[idx]["id"]} | Tên nhân viên: {employees[idx]["name"]} | Lương ngày: {employees[idx]["basic_salary"]} | Số ngày công: {employees[idx]["work_days"]} | Phụ cấp: {employees[idx]["allowance"]} | Tổng thu nhập: {employees[idx]["sum_salary"]} | Phân loại thu nhập: {employees[idx]["rank"]}")    
+
+#Thống kê lại
+def month_end_statistics():
+    print("--- Bảng thống kê nhân viên cuối tháng ---")
+    count_emp_high_salary = 0
+    count_emp_rather_salary = 0
+    count_emp_avg_salary = 0
+    count_emp_low_salary = 0
+    for emp in employees:
+        eval_emp = rank_input(emp["sum_salary"])
+        if eval_emp == "Cao":
+            count_emp_high_salary += 1
+        elif eval_emp == "Khá":
+            count_emp_rather_salary += 1
+        elif eval_emp == "Trung bình":
+            count_emp_avg_salary += 1
+        elif eval_emp == "Thấp":
+            count_emp_low_salary += 1
+            
+    print(f"Số lượng nhân viên thuộc nhóm thu nhập CAO là: {count_emp_high_salary}")
+    print(f"Số lượng nhân viên thuộc nhóm thu nhập KHÁ là: {count_emp_rather_salary}")
+    print(f"Số lượng nhân viên thuộc nhóm thu nhập TRUNG BÌNH là: {count_emp_avg_salary}")
+    print(f"Số lượng nhân viên thuộc nhóm thu nhập THẤP là: {count_emp_low_salary}")
+    
 def main():
     while True:
         print("""=== HỆ THỐNG QUẢN LÝ NHÂN VIÊN ===
@@ -170,7 +195,9 @@ def main():
                 delete_employ()
             case 5:
                 find_employ()
-            case 8:
+            case 6:
+                month_end_statistics()
+            case 7:
                 print("Thoát chương trình")
                 break
         
