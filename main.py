@@ -179,10 +179,10 @@ def main():
                 
                 if 1 <= choice <= 7:
                     break
-                print("Chỉ nhập lựa chọn trong khoảng 1 - 8") 
+                print("Chỉ nhập lựa chọn trong khoảng 1 - 7") 
                 
             except ValueError:
-                print("Vui lòng chỉ nhập lựa chọn từ 1 - 8")
+                print("Vui lòng chỉ nhập lựa chọn từ 1 - 7")
         
         match choice:
             case 1:
