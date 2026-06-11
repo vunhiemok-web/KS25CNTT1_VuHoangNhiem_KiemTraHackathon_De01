@@ -177,7 +177,7 @@ def main():
             try:
                 choice = int(input("Nhập lựa chọn của bạn: "))
                 
-                if 1 <= choice <= 8:
+                if 1 <= choice <= 7:
                     break
                 print("Chỉ nhập lựa chọn trong khoảng 1 - 8") 
                 
