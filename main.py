@@ -77,9 +77,10 @@ def add_employ():
                 })
                 print("Đã thêm thành công")
                 break
+            
 #Cập nhật thông tin
 def update_infor():
-    id_emp = input("Nhập mã nhân viên cần tìm: ").strip().upper()
+    id_emp = input("Nhập mã nhân viên cần cập nhật: ").strip().upper()
     idx = validate_id(id_emp)
     if validate_id(id_emp) == -1:
         print("Mã nhân viên không tồn tại")
@@ -112,6 +113,25 @@ def update_infor():
             eval_total = "Thấp"
         employees[idx]["rank"] = eval_total
         print("Cập nhật thành công")
+        
+def delete_employ():
+    id_emp = input("Nhập mã nhân viên cần xóa: ").strip().upper()
+    idx = validate_id(id_emp)
+    if validate_id(id_emp) == -1:
+        print("Mã nhân viên không tồn tại")
+    else:
+        while True:
+            confirm = input("Bạn có xác nhận muốn xóa(Y/N): ").strip().upper()
+            if confirm == "Y":
+                employees.pop(idx)
+                print("Đã xóa nhân viên đó")
+                break
+            elif confirm == "N":
+                print("Hủy xóa nhân viên")
+                break
+            else:
+                print("Vui lòng nhập Y hoặc N")
+                
 def main():
     while True:
         print("""=== HỆ THỐNG QUẢN LÝ NHÂN VIÊN ===
@@ -143,6 +163,8 @@ def main():
                 add_employ()
             case 3:
                 update_infor()
+            case 4:
+                delete_employ()
             case 8:
                 print("Thoát chương trình")
                 break
