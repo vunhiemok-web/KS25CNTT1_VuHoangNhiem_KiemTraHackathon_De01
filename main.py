@@ -6,7 +6,7 @@ employees = [
         "work_days": 25,
         "allowance": 1500000,
         "sum_salary": 11500000,
-        "rank": "Khá"
+        "rank": "Trung bình"
     }
 ]
 #KT SỐ NGUYÊN DƯƠNG
